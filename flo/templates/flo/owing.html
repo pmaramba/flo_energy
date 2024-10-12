@@ -1,0 +1,35 @@
+{% extends 'flo/base.html' %}
+
+{% block body %}
+<h2>Red Companies</h2>
+
+{% if owing_companies %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Company Name</th>
+                <th>Contact Person</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Fuel Type</th>
+                <th>Amount Owing</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for company_info in owing_companies %}
+                <tr>
+                    <td>{{ company_info.company.company_name }}</td>
+                    <td>{{ company_info.company.contact_person }}</td>
+                    <td>{{ company_info.company.phone }}</td>
+                    <td>{{ company_info.company.email }}</td>
+                    <td>{{ company_info.company.fuel_type }}</td>
+                    <td>${{ company_info.amount_owing }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No companies are owing at the moment.</p>
+{% endif %}
+
+{% endblock %}

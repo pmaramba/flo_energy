@@ -1,0 +1,32 @@
+{% extends 'flo/base.html' %}
+
+{% block body %}
+<h1>Company Dashboard</h1>  
+<table>  
+    <thead>  
+        <tr>  
+            <th>Company Name</th>  
+            <th>Contact Person</th>  
+            <th>Email</th>  
+            <th>Phone</th>  
+            <th>Address</th>  
+            <th>Fuel Type</th>  
+            <th>Fuel Allocation (Liters)</th>  
+        </tr>  
+    </thead>  
+    <tbody>  
+        {% for company in companies %}  
+        <tr>  
+            <td>{{ company.company_name }}</td>  
+            <td>{{ company.contact_person }}</td>  
+            <td>{{ company.email }}</td>  
+            <td>{{ company.phone }}</td>  
+            <td>{{ company.address }}</td>  
+            <td>{{ company.get_fuel_type_display }}</td>  
+            <td>{{ company.fuel_allocation }}</td>  
+        </tr>  
+        {% endfor %}  
+    </tbody>  
+</table>
+
+{% endblock %}
